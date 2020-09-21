@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'My app';
+
+  isAuthenticated = false;
+
+  appareilOne = 'Machine à laver';
+  appareilTwo = 'Frigo';
+  appareilThree = 'Ordinateur';
+
+  constructor() {
+    setTimeout(
+      () => {
+        this.isAuthenticated = true;
+      }, 4000
+    );
+  }
+
+  onAllumer(): void {
+    console.log('On alllume tous les appareils');
+  }
 }

@@ -35,7 +35,7 @@ include makefiles/*.mk
 init: composer-install ## install project dependencies
 
 bash-angular: ## open a bash session in the angular container
-	docker-compose -f ${DOCKER_COMPOSE_FILE} exec angular /bin/sh
+	docker-compose -f ${DOCKER_COMPOSE_FILE} exec --user ${USER_ID}:${GROUP_ID} angular /bin/sh
 
 #------------------------------------------------------------------------------
 
