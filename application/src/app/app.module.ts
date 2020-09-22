@@ -19,7 +19,7 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
     AppareilComponent,
     PostListComponent,
     PostComponent,
-    PostComponent
+    AuthComponent,
     AppareilViewComponent
   ],
   imports: [
