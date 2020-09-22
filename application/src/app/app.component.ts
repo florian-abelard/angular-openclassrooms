@@ -8,8 +8,6 @@ import { Post } from './model/post';
 })
 export class AppComponent implements OnInit{
 
-  isAuthenticated = false;
-
   posts: Post[] = [];
 
   constructor() {

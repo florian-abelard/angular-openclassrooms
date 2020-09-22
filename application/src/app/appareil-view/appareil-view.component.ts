@@ -8,11 +8,10 @@ import { AppareilService } from '../services/appareil.service';
 })
 export class AppareilViewComponent implements OnInit {
 
-  @Input() isAuthenticated: boolean;
-
+  isAuthenticated: boolean = false;
   appareils: any[] = [];
 
-  constructor(private appareilService: AppareilService) { }
+  constructor(private appareilService: AppareilService) {}
 
   ngOnInit(): void {
     this.appareils = this.appareilService.appareils;
