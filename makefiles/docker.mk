@@ -2,14 +2,17 @@
 # Docker Makefile
 #------------------------------------------------------------------------------
 
-build: ##@docker build containers
-	docker-compose -f ${DOCKER_COMPOSE_FILE} build
 
 up: .env ##@docker build and start containers
 	docker-compose -f ${DOCKER_COMPOSE_FILE} up -d
 
 down: ##@docker stop and remove containers and volumes
 	docker-compose -f ${DOCKER_COMPOSE_FILE} down --volumes
+
+restart: down up ##@docker stop and start containers
+
+build: ##@docker build containers
+	docker-compose -f ${DOCKER_COMPOSE_FILE} build
 
 rebuild: build up ##@docker rebuild and start containers
 
