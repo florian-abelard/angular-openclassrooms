@@ -14,11 +14,11 @@ export class AppareilListComponent {
   constructor(private appareilService: AppareilService) {
   }
 
-  onAllumer(): void {
+  onSwitchOn(): void {
     this.appareilService.switchOnAll();
   }
 
-  onEteindre(): void {
+  onSwitchOff(): void {
     if (confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')) {
       this.appareilService.switchOffAll();
     } else {
