@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-appareil-list',
@@ -7,38 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppareilListComponent {
 
-  isAuthenticated = false;
-
-  lastUpdate = new Promise((resolve, reject) => {
-    const date = new Date();
-    setTimeout(
-      () => {
-        resolve(date);
-      }, 2000
-    );
-  });
-
-  appareils = [
-    {
-      name: 'Machine à laver',
-      status: 'éteint'
-    },
-    {
-      name: 'Frigo',
-      status: 'allumé'
-    },
-    {
-      name: 'Ordinateur',
-      status: 'éteint'
-    }
-  ];
+  @Input() appareils: any[];
+  @Input() isAuthenticated: boolean;
 
   constructor() {
-    setTimeout(
-      () => {
-        this.isAuthenticated = true;
-      }, 4000
-    );
   }
 
   onAllumer(): void {

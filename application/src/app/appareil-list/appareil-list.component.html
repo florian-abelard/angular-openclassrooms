@@ -1,8 +1,8 @@
-<div class="container">
+<div>
   <div class="row">
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
-      <p>Mise à jour : {{ lastUpdate | async | date: 'short' }}</p>
+      <!-- <p>Mise à jour : {{ lastUpdate | async | date: 'short' }}</p> -->
       <ul class="list-group">
         <app-appareil 
             *ngFor="let appareil of appareils"

@@ -1,23 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from './model/post';
+import { AppareilService } from './services/appareil.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
+  isAuthenticated = false;
+
+  appareils: any[] = [];
   posts: Post[] = [];
 
-  constructor() {
+  constructor(private appareilService: AppareilService) {
 
+    setTimeout(
+      () => {
+        this.isAuthenticated = true;
+      }, 4000
+    );
+
+  }
+
+  ngOnInit(): void {
+    this.appareils = this.appareilService.appareils;
     this.posts = this.fetchBlogPosts();
   }
 
   fetchBlogPosts(): Post[] {
 
-    let posts: Post[] = [];
+    const posts: Post[] = [];
 
     posts.push(
       new Post(
