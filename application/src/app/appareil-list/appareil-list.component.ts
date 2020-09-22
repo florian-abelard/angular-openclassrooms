@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AppareilService } from '../services/appareil.service';
 
 @Component({
   selector: 'app-appareil-list',
@@ -10,10 +11,18 @@ export class AppareilListComponent {
   @Input() appareils: any[];
   @Input() isAuthenticated: boolean;
 
-  constructor() {
+  constructor(private appareilService: AppareilService) {
   }
 
   onAllumer(): void {
-    console.log('On alllume tous les appareils');
+    this.appareilService.switchOnAll();
+  }
+
+  onEteindre(): void {
+    if (confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')) {
+      this.appareilService.switchOffAll();
+    } else {
+      return null;
+    }
   }
 }

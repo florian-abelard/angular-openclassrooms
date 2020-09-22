@@ -14,4 +14,16 @@ export class AppareilService {
       status: 'éteint'
     }
   ];
+
+  switchOnAll(): void {
+    for (const appareil of this.appareils) {
+      appareil.status = 'allumé';
+    }
+  }
+
+  switchOffAll(): void {
+    for (const appareil of this.appareils) {
+      appareil.status = 'éteint';
+    }
+  }
 }

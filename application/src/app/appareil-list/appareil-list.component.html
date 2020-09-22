@@ -17,6 +17,13 @@
       >
         Tout allumer
       </button>
+      <button 
+        class="btn btn-danger" 
+        [disabled]="!isAuthenticated"
+        (click)="onEteindre()"
+      >
+        Tout allumer
+      </button>
     </div>
   </div>
 </div>
