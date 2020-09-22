@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes appareils</h2>
+      <!-- <p>Mise à jour : {{ lastUpdate | async | date: 'short' }}</p> -->
+      <app-appareil-list [appareils]="appareils" [isAuthenticated]="isAuthenticated"></app-appareil-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" [disabled]="!isAuthenticated" (click)="onSwitchOn()">
+        Tout allumer
+      </button>
+      <button class="btn btn-danger" [disabled]="!isAuthenticated" (click)="onSwitchOff()">
+        Tout éteindre
+      </button>
+    </div>
+  </div>
+</div>

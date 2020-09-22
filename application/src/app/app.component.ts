@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from './model/post';
-import { AppareilService } from './services/appareil.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +10,9 @@ export class AppComponent implements OnInit{
 
   isAuthenticated = false;
 
-  appareils: any[] = [];
   posts: Post[] = [];
 
-  constructor(private appareilService: AppareilService) {
+  constructor() {
 
     setTimeout(
       () => {
@@ -25,7 +23,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.appareils = this.appareilService.appareils;
     this.posts = this.fetchBlogPosts();
   }
 
