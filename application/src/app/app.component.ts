@@ -8,7 +8,7 @@ import { Post } from './model/post';
 })
 export class AppComponent {
 
-  posts: Post[] = [];
+  posts: Array<Post> = [];
 
   constructor() {
 
