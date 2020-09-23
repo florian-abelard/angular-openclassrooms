@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, Observable } from 'rxjs';
 import { Post } from './model/post';
 
 @Component({
@@ -9,12 +10,26 @@ import { Post } from './model/post';
 export class AppComponent implements OnInit{
 
   posts: Post[] = [];
+  seconds: number;
 
   constructor() {
   }
 
   ngOnInit(): void {
     this.posts = this.fetchBlogPosts();
+
+    const counter = interval(1000);
+    counter.subscribe(
+      (value) => {
+        this.seconds = value;
+      },
+      (error) => {
+        console.log('An error occurred! :>> ', error);
+      },
+      () => {
+       console.log('Observable complete');
+      }
+    );
   }
 
   fetchBlogPosts(): Post[] {
