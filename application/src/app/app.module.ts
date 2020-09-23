@@ -14,6 +14,7 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { AuthService } from './services/auth.service';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 import { FourOhFourComponent } from './error/four-oh-four/four-oh-four.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { FourOhFourComponent } from './error/four-oh-four/four-oh-four.component
   providers: [
     AppareilService,
     AuthService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
