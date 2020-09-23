@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Observable, Subscription } from 'rxjs';
 import { Post } from './model/post';
 
 @Component({
@@ -7,10 +7,11 @@ import { Post } from './model/post';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
   seconds: number;
+  counterSubscription: Subscription;
 
   constructor() {
   }
@@ -18,8 +19,9 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.posts = this.fetchBlogPosts();
 
-    const counter = interval(1000);
-    counter.subscribe(
+    const counter: Observable<number> = interval(1000);
+
+    this.counterSubscription = counter.subscribe(
       (value) => {
         this.seconds = value;
       },
@@ -27,9 +29,13 @@ export class AppComponent implements OnInit{
         console.log('An error occurred! :>> ', error);
       },
       () => {
-       console.log('Observable complete');
+        console.log('Observable complete');
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.counterSubscription.unsubscribe();
   }
 
   fetchBlogPosts(): Post[] {

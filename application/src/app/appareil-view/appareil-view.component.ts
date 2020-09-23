@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AppareilService } from '../services/appareil.service';
 
 @Component({
@@ -10,11 +11,17 @@ export class AppareilViewComponent implements OnInit {
 
   isAuthenticated: boolean = false;
   appareils: any[] = [];
+  appareilsSubscription: Subscription;
 
   constructor(private appareilService: AppareilService) {}
 
   ngOnInit(): void {
-    this.appareils = this.appareilService.appareils;
+    this.appareilsSubscription = this.appareilService.appareilsSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appareilService.emitAppareilsSubject();
   }
 
   onSwitchOn(): void {
