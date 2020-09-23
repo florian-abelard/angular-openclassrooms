@@ -11,6 +11,10 @@ import { AppareilListComponent } from './appareil-list/appareil-list.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
+import { AuthService } from './services/auth.service';
+import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
+import { FourOhFourComponent } from './error/four-oh-four/four-oh-four.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,9 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
     PostListComponent,
     PostComponent,
     AuthComponent,
-    AppareilViewComponent
+    AppareilViewComponent,
+    SingleAppareilComponent,
+    FourOhFourComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,8 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
     FormsModule
   ],
   providers: [
-    AppareilService
+    AppareilService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

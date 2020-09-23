@@ -9,6 +9,7 @@ import { AppareilService } from '../services/appareil.service';
 export class AppareilListComponent {
 
   @Input() appareils: any[];
+  @Input() isAuthenticated: boolean;
 
   constructor(private appareilService: AppareilService) {
   }

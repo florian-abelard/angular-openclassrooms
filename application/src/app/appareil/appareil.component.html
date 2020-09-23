@@ -4,6 +4,7 @@
         'list-group-item-danger': appareil.status === 'éteint'
 }">
     <h4>Appareil : {{ appareil.name }} -- Statut : {{ getStatus() }}</h4>
+    <a [routerLink]="[appareil.id]">Détail</a>
     <input type="text" class="form-control" [(ngModel)]="appareil.name">
     <button class="btn btn-sm btn-success"
         *ngIf="appareil.status === 'éteint'"
