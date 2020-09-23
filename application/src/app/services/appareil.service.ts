@@ -34,6 +34,17 @@ export class AppareilService {
     return appareil;
   }
 
+  addAppareil(name: string, status: string): void {
+    const appareil = {
+      id: this.appareils[(this.appareils.length - 1)].id + 1,
+      name,
+      status,
+    };
+
+    this.appareils.push(appareil);
+    this.emitAppareilsSubject();
+  }
+
   switchOnAll(): void {
     for (const appareil of this.appareils) {
       appareil.status = 'allumé';
