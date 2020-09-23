@@ -11,13 +11,6 @@ export class AppComponent implements OnInit{
   posts: Post[] = [];
 
   constructor() {
-
-    setTimeout(
-      () => {
-        this.isAuthenticated = true;
-      }, 4000
-    );
-
   }
 
   ngOnInit(): void {
