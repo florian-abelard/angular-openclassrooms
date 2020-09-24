@@ -6,7 +6,7 @@ import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 import { FourOhFourComponent } from './error/four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },

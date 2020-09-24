@@ -9,14 +9,15 @@ import { AppareilComponent } from './appareil/appareil.component';
 import { AuthComponent } from './auth/auth.component';
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 import { FourOhFourComponent } from './error/four-oh-four/four-oh-four.component';
-import { PostListComponent } from './post-list/post-list.component';
-import { PostComponent } from './post/post.component';
+import { PostListComponent } from './post/post-list/post-list.component';
+import { PostItemComponent } from './post/post-item/post-item.component';
 import { AppareilService } from './services/appareil.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { UserListComponent } from './user-list/user-list.component';
     AppareilListComponent,
     AppareilComponent,
     PostListComponent,
-    PostComponent,
+    PostItemComponent,
     AuthComponent,
     AppareilViewComponent,
     SingleAppareilComponent,
     FourOhFourComponent,
     EditAppareilComponent,
     UserListComponent,
+    CreateUserComponent,
   ],
   imports: [
     BrowserModule,

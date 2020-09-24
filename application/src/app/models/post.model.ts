@@ -1,10 +1,10 @@
 export class Post {
 
     '@type' = 'Post';
-    private title: string;
-    private content: string;
-    private loveIts: number;
-    private createdAt: Date;
+    title: string;
+    content: string;
+    loveIts: number;
+    createdAt: Date;
 
     constructor(title: string, content: string) {
         this.title = title;
