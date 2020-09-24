@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { interval, Observable, Subscription } from 'rxjs';
-import { Post } from './models/post';
+import { Post } from './models/post.model';
 
 @Component({
   selector: 'app-root',
