@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-user',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateUserComponent implements OnInit {
 
-  constructor() { }
+  userForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.initForm();
   }
 
+  initForm(): void {
+    this.userForm = this.formBuilder.group({
+      firstName: '',
+      lastName: '',
+      email: '',
+      drinkPreference: '',
+    });
+  }
+
+  onSubmitForm() {
+    const formValue = this.userForm.value;
+    const newUser = new User(
+      formValue.firstName,
+      formValue.lastName,
+      formValue.email,
+      formValue.drinkPreference
+    );
+    this.userService.addUser(newUser);
+    this.router.navigate(['/users']);
+  }
 }

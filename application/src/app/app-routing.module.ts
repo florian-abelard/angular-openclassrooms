@@ -6,6 +6,7 @@ import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 import { FourOhFourComponent } from './error/four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'appareils/edit', canActivate: [AuthGuard], component: EditAppareilComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
   { path: 'users', component: UserListComponent },
+  { path: 'users/create', component: CreateUserComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' },
